@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>hexo</title>
+  <title>程序员博客</title>
   
-  <subtitle>From small beginnings comes great things</subtitle>
+  <subtitle>做一个快乐的程序员</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shigc.github.io/"/>
-  <updated>2018-03-18T10:14:29.868Z</updated>
+  <updated>2018-03-18T15:31:08.853Z</updated>
   <id>https://shigc.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>安卓手机用作电脑的HTTP代理服务器</title>
+    <link href="https://shigc.github.io/2018/03/18/article1/"/>
+    <id>https://shigc.github.io/2018/03/18/article1/</id>
+    <published>2018-03-18T14:55:14.974Z</published>
+    <updated>2018-03-18T15:31:08.853Z</updated>
+    
+    <content type="html"><![CDATA[<p>目前电脑上的免费VPN软件比较难找，但是安卓上的免费VPN软件很多，所以考虑手机翻墙后作为电脑端的HTTP代理服务器，让电脑端也可以科学上网</p><h3 id="手机端设置："><a href="#手机端设置：" class="headerlink" title="手机端设置："></a>手机端设置：</h3><ol><li><p>下载安装Termux，google play上可以直接下载</p></li><li><p>在Termux上安装Python</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ apt install python</span><br></pre></td></tr></table></figure></li><li><p>安装<a href="https://github.com/abhinavsingh/proxy.py" title="proxy.py" target="_blank" rel="noopener">HTTP代理服务器</a>脚本</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install proxy.py</span><br></pre></td></tr></table></figure></li><li><p>运行HTTP代理服务器（默认端口是8899，可以用port参数指定端口）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ proxy.py --hostname  &lt;手机局域网IP地址&gt;</span><br></pre></td></tr></table></figure></li></ol><p><strong> 备注：</strong></p><ol><li>hostname参数不配置的话，默认使用的IP是127.0.0.1，这时手机只能作为本机的代理服务器</li><li>手机和电脑必须在同一个局域网下（保证手机和电脑能建立连接） </li></ol><h3 id="电脑端设置："><a href="#电脑端设置：" class="headerlink" title="电脑端设置："></a>电脑端设置：</h3><ol><li>设置IE的代理:Internet选项–连接–局域网设置–代理服务器，地址为手机局域网地址，端口8899，你也可以安装一些快速切换代理的插件来设置，这里就不多说明了</li></ol><h4 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h4><p><a href="https://zhuanlan.zhihu.com/p/22683468" target="_blank" rel="noopener">知乎：用Android手机做电脑的HTTP代理服务器</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;目前电脑上的免费VPN软件比较难找，但是安卓上的免费VPN软件很多，所以考虑手机翻墙后作为电脑端的HTTP代理服务器，让电脑端也可以科学上网&lt;/p&gt;
+&lt;h3 id=&quot;手机端设置：&quot;&gt;&lt;a href=&quot;#手机端设置：&quot; class=&quot;headerlink&quot; title=&quot;手机
+      
+    
+    </summary>
+    
+      <category term="安卓" scheme="https://shigc.github.io/categories/%E5%AE%89%E5%8D%93/"/>
+    
+    
+      <category term="android" scheme="https://shigc.github.io/tags/android/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="https://shigc.github.io/2018/03/18/hello-world/"/>
     <id>https://shigc.github.io/2018/03/18/hello-world/</id>
     <published>2018-03-18T10:14:29.867Z</published>
-    <updated>2018-03-18T10:14:29.868Z</updated>
+    <updated>2018-03-18T13:34:58.903Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     
@@ -34,6 +60,14 @@
     
     </summary>
     
+      <category term="测试页面" scheme="https://shigc.github.io/categories/%E6%B5%8B%E8%AF%95%E9%A1%B5%E9%9D%A2/"/>
+    
+    
+      <category term="test" scheme="https://shigc.github.io/tags/test/"/>
+    
+      <category term="hexo" scheme="https://shigc.github.io/tags/hexo/"/>
+    
+      <category term="github" scheme="https://shigc.github.io/tags/github/"/>
     
   </entry>
   
