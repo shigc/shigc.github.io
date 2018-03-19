@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[湖北广电智宝盒安装第三方软件及ROOT]]></title>
-    <url>%2F2018%2F03%2F19%2Farticle2%2F</url>
-    <content type="text"><![CDATA[目前电脑上的免费VPN软件比较难找，但是安卓上的免费VPN软件很多，所以考虑手机翻墙后作为电脑端的HTTP代理服务器，让电脑端也可以科学上网 手机端设置： 下载安装Termux，google play上可以直接下载 在Termux上安装Python 1$ apt install python 安装HTTP代理服务器脚本 1$ pip install proxy.py 运行HTTP代理服务器（默认端口是8899，可以用port参数指定端口） 1$ proxy.py --hostname &lt;手机局域网IP地址&gt; 备注： hostname参数不配置的话，默认使用的IP是127.0.0.1，这时手机只能作为本机的代理服务器 手机和电脑必须在同一个局域网下（保证手机和电脑能建立连接） 电脑端设置： 设置IE的代理:Internet选项–连接–局域网设置–代理服务器，地址为手机局域网地址，端口8899，你也可以安装一些快速切换代理的插件来设置，这里就不多说明了 Tips:手机通过电脑代理上网也可以类似地进行操作，在电脑上安装Python和proxy.py，然后运行proxy.py 参考文章：知乎：用Android手机做电脑的HTTP代理服务器]]></content>
-      <categories>
-        <category>机顶盒</category>
-      </categories>
-      <tags>
-        <tag>android</tag>
-        <tag>intelligent device</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[安卓手机用作电脑的HTTP代理服务器]]></title>
     <url>%2F2018%2F03%2F18%2Farticle1%2F</url>
     <content type="text"><![CDATA[目前电脑上的免费VPN软件比较难找，但是安卓上的免费VPN软件很多，所以考虑手机翻墙后作为电脑端的HTTP代理服务器，让电脑端也可以科学上网 手机端设置： 下载安装Termux，google play上可以直接下载 在Termux上安装Python 1$ apt install python 安装HTTP代理服务器脚本 1$ pip install proxy.py 运行HTTP代理服务器（默认端口是8899，可以用port参数指定端口） 1$ proxy.py --hostname &lt;手机局域网IP地址&gt; 备注： hostname参数不配置的话，默认使用的IP是127.0.0.1，这时手机只能作为本机的代理服务器 手机和电脑必须在同一个局域网下（保证手机和电脑能建立连接） 电脑端设置： 设置IE的代理:Internet选项–连接–局域网设置–代理服务器，地址为手机局域网地址，端口8899，你也可以安装一些快速切换代理的插件来设置，这里就不多说明了 Tips:手机通过电脑代理上网也可以类似地进行操作，在电脑上安装Python和proxy.py，然后运行proxy.py 参考文章：知乎：用Android手机做电脑的HTTP代理服务器]]></content>
