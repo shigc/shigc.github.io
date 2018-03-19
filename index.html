@@ -87,7 +87,7 @@
 <meta name="description" content="From small beginnings comes great things">
 <meta property="og:type" content="website">
 <meta property="og:title" content="程序员博客">
-<meta property="og:url" content="https://shigc.github.io/index.html">
+<meta property="og:url" content="http://shigc.top/index.html">
 <meta property="og:site_name" content="程序员博客">
 <meta property="og:description" content="From small beginnings comes great things">
 <meta property="og:locale" content="zh-Hans">
@@ -287,6 +287,146 @@ var _hmt = _hmt || [];
             
               
                 
+                <a class="post-title-link" href="/2018/03/19/article2/" itemprop="url">
+                  湖北广电智宝盒安装第三方软件及ROOT
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-03-19T16:18:53+08:00" content="2018-03-19">
+              2018-03-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机顶盒/" itemprop="url" rel="index">
+                    <span itemprop="name">机顶盒</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>目前电脑上的免费VPN软件比较难找，但是安卓上的免费VPN软件很多，所以考虑手机翻墙后作为电脑端的HTTP代理服务器，让电脑端也可以科学上网</p>
+<h3 id="手机端设置："><a href="#手机端设置：" class="headerlink" title="手机端设置："></a>手机端设置：</h3><ol>
+<li><p>下载安装Termux，google play上可以直接下载</p>
+</li>
+<li><p>在Termux上安装Python</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ apt install python</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装<a href="https://github.com/abhinavsingh/proxy.py" title="proxy.py" target="_blank" rel="noopener">HTTP代理服务器</a>脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install proxy.py</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行HTTP代理服务器（默认端口是8899，可以用port参数指定端口）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ proxy.py --hostname  &lt;手机局域网IP地址&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong> 备注：</strong></p>
+<ol>
+<li>hostname参数不配置的话，默认使用的IP是127.0.0.1，这时手机只能作为本机的代理服务器</li>
+<li>手机和电脑必须在同一个局域网下（保证手机和电脑能建立连接） </li>
+</ol>
+<h3 id="电脑端设置："><a href="#电脑端设置：" class="headerlink" title="电脑端设置："></a>电脑端设置：</h3><ol>
+<li>设置IE的代理:Internet选项–连接–局域网设置–代理服务器，地址为手机局域网地址，端口8899，你也可以安装一些快速切换代理的插件来设置，这里就不多说明了</li>
+</ol>
+<h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips:"></a>Tips:</h4><p>手机通过电脑代理上网也可以类似地进行操作，在电脑上安装Python和proxy.py，然后运行proxy.py</p>
+<h4 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h4><p><a href="https://zhuanlan.zhihu.com/p/22683468" target="_blank" rel="noopener">知乎：用Android手机做电脑的HTTP代理服务器</a></p>
+
+          
+        
+      
+    </div>
+
+	<div>
+      
+    </div>
+	
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/03/18/article1/" itemprop="url">
                   安卓手机用作电脑的HTTP代理服务器
                 </a>
@@ -372,6 +512,7 @@ var _hmt = _hmt || [];
 <h3 id="电脑端设置："><a href="#电脑端设置：" class="headerlink" title="电脑端设置："></a>电脑端设置：</h3><ol>
 <li>设置IE的代理:Internet选项–连接–局域网设置–代理服务器，地址为手机局域网地址，端口8899，你也可以安装一些快速切换代理的插件来设置，这里就不多说明了</li>
 </ol>
+<h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips:"></a>Tips:</h4><p>手机通过电脑代理上网也可以类似地进行操作，在电脑上安装Python和proxy.py，然后运行proxy.py</p>
 <h4 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h4><p><a href="https://zhuanlan.zhihu.com/p/22683468" target="_blank" rel="noopener">知乎：用Android手机做电脑的HTTP代理服务器</a></p>
 
           
@@ -571,7 +712,7 @@ var _hmt = _hmt || [];
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -579,7 +720,7 @@ var _hmt = _hmt || [];
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -588,7 +729,7 @@ var _hmt = _hmt || [];
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
