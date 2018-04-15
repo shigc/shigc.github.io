@@ -350,40 +350,261 @@ var _hmt = _hmt || [];
       
         
           
-            <h3 id="正则表达式速查表"><a href="#正则表达式速查表" class="headerlink" title="正则表达式速查表"></a>正则表达式速查表</h3><table><br>  <tr><br>    <th width="10%," bgcolor="yellow">参数</th><br>    <th width="40%," bgcolor="yellow">详细解释</th><br>    &lt;th width=”50%”, bgcolor=yellow&gt;备注<br>  </tr><br>  <tr><br>    <td bgcolor="#eeeeee"> -l </td><br>    <td> use a long listing format  </td><br>    <td> 以长列表方式显示（显示出文件/文件夹详细信息）  </td><br>  </tr><br>  <tr><br>    <td bgcolor="#00FF00">-t </td><br>    <td> sort by modification time </td><br>    <td> 按照修改时间排序（默认最近被修改的文件/文件夹排在最前面） </td><br>  </tr><tr><br>    <td bgcolor="rgb(0,10,0)">-r </td><br>    <td> reverse order while sorting </td><br>    <td>  逆序排列 </td><br>  </tr><br></table>
-
-<p>作者：cxuan<br>链接：<a href="https://www.jianshu.com/p/7a655e5345b2" target="_blank" rel="noopener">https://www.jianshu.com/p/7a655e5345b2</a><br>來源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-<h3 id="常见的反爬虫及应对策略"><a href="#常见的反爬虫及应对策略" class="headerlink" title="常见的反爬虫及应对策略"></a>常见的反爬虫及应对策略</h3><ol>
-<li>通过检查Headers中的User-Agent或者Referer（为了防止盗链）值，应对策略：<ul>
-<li><code>在请求的时候动态修改User-Agent值，或者将Referer设置为目标网站的域名地址**</code></li>
-</ul>
-</li>
-<li>基于用户行为进行反爬虫，同一个IP很短的时间内多次进行访问，应对策略：<ul>
-<li><code>爬取页面的时候设置阈值，每次抓取完页面sleep一段时间</code></li>
-<li><code>使用IP代理，在抓取页面的时候动态的切换IP</code></li>
-<li><code>只抓取动态请求的数据，不直接抓取整个页面</code></li>
-</ul>
-</li>
-</ol>
-<h3 id="Scrapy中间件的使用"><a href="#Scrapy中间件的使用" class="headerlink" title="Scrapy中间件的使用"></a>Scrapy中间件的使用</h3><ol>
-<li>创建一个中间件对象，并实现<code>process_request(request, spider)</code>方法：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HttpProxyMiddleware</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">process_request</span><span class="params">(self, request, spider)</span>:</span></span><br><span class="line">    	proxy = HttpProxy()</span><br><span class="line">		<span class="comment">#这里可以设置请求的user-agent</span></span><br><span class="line">		<span class="comment">#request.headers.setdefault('User-Agent', "Your user agent!")</span></span><br><span class="line">		request.meta[<span class="string">"proxy"</span>] = proxy.get_random_ip()</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>这里的HttpProxy是写好的获取代理IP的工具类，返回代理格式：<code>[协议]://[IP]:[PORT]</code></p>
-<ol>
-<li><p>在setting.py中配置创建的中间件</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DOWNLOADER_MIDDLEWARES = &#123;  </span><br><span class="line">	<span class="string">'myprojects.middlewares.HttpProxyMiddleware'</span>: <span class="number">300</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>运行HTTP代理服务器（默认端口是8899，可以用port参数指定端口）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ proxy.py --hostname  &lt;手机局域网IP地址&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><strong> 备注：</strong></p>
-<ol>
-<li>hostname参数不配置的话，默认使用的IP是127.0.0.1，这时手机只能作为本机的代理服务器</li>
-<li>手机和电脑必须在同一个局域网下（保证手机和电脑能建立连接） </li>
-</ol>
-<h3 id="电脑端设置："><a href="#电脑端设置：" class="headerlink" title="电脑端设置："></a>电脑端设置：</h3><h4 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h4><p><a href="https://github.com/kohn/HttpProxyMiddleware" target="_blank" rel="noopener">github上的HttpProxyMiddleware</a></p>
+            <h3 id="正则表达式速查表"><a href="#正则表达式速查表" class="headerlink" title="正则表达式速查表"></a>正则表达式速查表</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">字符</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">\b</td>
+<td style="text-align:left">匹配一个单词边界，例如：”er\b”可以匹配”never”中的”er”，但不能匹配”verb”中的”er”</td>
+</tr>
+<tr>
+<td style="text-align:center">\B</td>
+<td style="text-align:left">匹配非单词边界，例如：”er\B”能匹配”verb”中的”er”，但不能匹配”never”中的”er”</td>
+</tr>
+<tr>
+<td style="text-align:center">\d</td>
+<td style="text-align:left">匹配一个数字字符，等价于[0-9]</td>
+</tr>
+<tr>
+<td style="text-align:center">\D</td>
+<td style="text-align:left">匹配一个非数字字符，等价于[^0-9]</td>
+</tr>
+<tr>
+<td style="text-align:center">\w</td>
+<td style="text-align:left">匹配包括下划线的任何单词字符，等价于”[A-Za-z0-9_]”</td>
+</tr>
+<tr>
+<td style="text-align:center">\W</td>
+<td style="text-align:left">匹配任何非单词字符，等价于”[^A-Za-z0-9_]”</td>
+</tr>
+<tr>
+<td style="text-align:center">\s</td>
+<td style="text-align:left">匹配任何空白字符，包括空格、制表符、换页符等等，等价于[ \f\n\r\t\v]</td>
+</tr>
+<tr>
+<td style="text-align:center">\S</td>
+<td style="text-align:left">匹配任何非空白字符，等价于[^ \f\n\r\t\v]</td>
+</tr>
+<tr>
+<td style="text-align:center">\t</td>
+<td style="text-align:left">匹配一个水平制表符，等价于\x09和\cI和\11</td>
+</tr>
+<tr>
+<td style="text-align:center">\n</td>
+<td style="text-align:left">匹配一个换行符，等价于\x0a和\cJ和\12</td>
+</tr>
+<tr>
+<td style="text-align:center">\v</td>
+<td style="text-align:left">匹配一个垂直制表符，等价于\x0b和\cK和\13</td>
+</tr>
+<tr>
+<td style="text-align:center">\f</td>
+<td style="text-align:left">匹配一个换页符，等价于\x0c和\cL和\14</td>
+</tr>
+<tr>
+<td style="text-align:center">\r</td>
+<td style="text-align:left">匹配一个回车符，等价于\x0d和\cM和\15</td>
+</tr>
+<tr>
+<td style="text-align:center">\num</td>
+<td style="text-align:left">匹配num，其中num是一个正整数，对所获取的匹配的引用，例如，”(.)\1”匹配两个连续的相同字符，</td>
+</tr>
+<tr>
+<td style="text-align:center">\xnn</td>
+<td style="text-align:left">匹配ASCII代码中十六进制代码为nn的字符，十六进制转义值必须为确定的两个数字长，例如：”\x41”匹配”A”，”\x041”则等价于”\x04&amp;1”，正则表达式中可以使用ASCII编码</td>
+</tr>
+<tr>
+<td style="text-align:center">\nml</td>
+<td style="text-align:left">如果n为八进制数字（0-3），且m和l均为八进制数字（0-7），则匹配八进制转义值nml，例如：字符串为:AA25\nbb23，正则表达式为”(.)\12”，匹配的结果是5&lt;换行符&gt;，而不是AA2和bb2，后者正确的正则表达式为”(.)\1[2]”</td>
+</tr>
+<tr>
+<td style="text-align:center">\unnnn</td>
+<td style="text-align:left">匹配Unicode代码中十六进制代码为nnnn的字符</td>
+</tr>
+<tr>
+<td style="text-align:center">\cx</td>
+<td style="text-align:left">匹配由x指明的控制字符，例如：\cM匹配一个Control-M或回车符，x的值必须为A-Z或a-z之一，否则，将c视为一个原义的”c”字符</td>
+</tr>
+<tr>
+<td style="text-align:center">\</td>
+<td style="text-align:left">将下一个字符标记为一个特殊字符、或一个原义字符、或一个向后引用、或一个八进制转义符，例如，”n”匹配字符”n”，”\n”匹配一个换行符</td>
+</tr>
+<tr>
+<td style="text-align:center">^</td>
+<td style="text-align:left">匹配输入字符串的开始位置，如果设置了RegExp对象的Multiline属性，^也匹配”\n”或”\r”之后的位置</td>
+</tr>
+<tr>
+<td style="text-align:center">$</td>
+<td style="text-align:left">匹配输入字符串的结束位置，如果设置了RegExp对象的Multiline属性，$也匹配”\n”或”\r”之前的位置</td>
+</tr>
+<tr>
+<td style="text-align:center">*</td>
+<td style="text-align:left">匹配前面的子表达式零次或多次，例如：zo<em>能匹配”z”以及”zoo”，</em>等价于{0,}</td>
+</tr>
+<tr>
+<td style="text-align:center">+</td>
+<td style="text-align:left">匹配前面的子表达式一次或多次，例如，”zo+”能匹配”zo”以及”zoo”，但不能匹配”z”，+等价于{1,}</td>
+</tr>
+<tr>
+<td style="text-align:center">?</td>
+<td style="text-align:left">匹配前面的子表达式零次或一次，例如，”do(es)?”可以匹配”does”或”does”中的”do”，?等价于{0,1}</td>
+</tr>
+<tr>
+<td style="text-align:center">{n}</td>
+<td style="text-align:left">n是一个非负整数，至少匹配n次，例如，”o{2,}”不能匹配”Bob”中的”o”，但能匹配”foooood”中的所有o，”o{1,}”等价于”o+”，”o{0,}”则等价于”o*”</td>
+</tr>
+<tr>
+<td style="text-align:center">{n,m}</td>
+<td style="text-align:left">m和n均为非负整数，其中n&lt;=m，最少匹配n次且最多匹配m次，例如，”o{1,3}”将匹配”fooooood”中的前三个o，”o{0,1}”等价于”o?”，请注意在逗号和两个数之间不能有空格</td>
+</tr>
+<tr>
+<td style="text-align:center">?</td>
+<td style="text-align:left">当该字符紧跟在任何一个其他限制符（*,+,?，{n}，{n,}，{n,m}）后面时，匹配模式是非贪婪的，非贪婪模式尽可能少的匹配所搜索的字符串，而默认的贪婪模式则尽可能多的匹配所搜索的字符串，例如，对于字符串”oooo”，”o+?”将匹配单个”o”，而”o+”将匹配所有”o”</td>
+</tr>
+<tr>
+<td style="text-align:center">.</td>
+<td style="text-align:left">匹配除”\n”之外的任何单个字符，要匹配包括”\n”在内的任何字符，请使用像”(.&#124;\n)”的模式</td>
+</tr>
+<tr>
+<td style="text-align:center">(pattern)</td>
+<td style="text-align:left">匹配pattern并获取这一匹配，所获取的匹配可以从产生的Matches集合得到，在VBScript中使用SubMatches集合，在JScript中则使用$0…$9属性，要匹配圆括号字符，请使用”(“或”)“</td>
+</tr>
+<tr>
+<td style="text-align:center">(?:pattern)</td>
+<td style="text-align:left">匹配pattern但不获取匹配结果，也就是说这是一个非获取匹配，不进行存储供以后使用，这在使用或字符”(&#124;)”来组合一个模式的各个部分是很有用，例如”industr(?:y&#124;ies)”就是一个比”industry&#124;industries”更简略的表达式</td>
+</tr>
+<tr>
+<td style="text-align:center">(?=pattern)</td>
+<td style="text-align:left">正向肯定预查，在任何匹配pattern的字符串开始处匹配查找字符串，这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用，例如，”Windows(?=95&#124;98&#124;NT&#124;2000)”能匹配”Windows2000”中的”Windows”，但不能匹配”Windows3.1”中的”Windows”，预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始</td>
+</tr>
+<tr>
+<td style="text-align:center">(?!pattern)</td>
+<td style="text-align:left">正向否定预查，在任何不匹配pattern的字符串开始处匹配查找字符串，这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用，例如”Windows(?!95&#124;98&#124;NT&#124;2000)”能匹配”Windows3.1”中的”Windows”，但不能匹配”Windows2000”中的”Windows”，预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始</td>
+</tr>
+<tr>
+<td style="text-align:center">(?&lt;=pattern)</td>
+<td style="text-align:left">反向肯定预查，与正向肯定预查类拟，只是方向相反，例如，”(?&lt;=95&#124;98&#124;NT&#124;2000)Windows”能匹配”2000Windows”中的”Windows”，但不能匹配”3.1Windows”中的”Windows”</td>
+</tr>
+<tr>
+<td style="text-align:center">(?&lt;!pattern)</td>
+<td style="text-align:left">反向否定预查，与正向否定预查类拟，只是方向相反，例如”(?&lt;!95&#124;98&#124;NT&#124;2000)Windows”能匹配”3.1Windows”中的”Windows”，但不能匹配”2000Windows”中的”Windows”</td>
+</tr>
+<tr>
+<td style="text-align:center">x&#124;y</td>
+<td style="text-align:left">匹配x或y，例如，”z\&#124;food”能匹配”z”或”food”，”(z&#124;f)ood”则匹配”zood”或”food”</td>
+</tr>
+<tr>
+<td style="text-align:center">[xyz]</td>
+<td style="text-align:left">字符集合，匹配所包含的任意一个字符，例如，”[abc]”可以匹配”plain”中的”a”</td>
+</tr>
+<tr>
+<td style="text-align:center">[^xyz]</td>
+<td style="text-align:left">负值字符集合，匹配未包含的任意字符，例如，”[^abc]”可以匹配”plain”中的”p”</td>
+</tr>
+<tr>
+<td style="text-align:center">[a-z]</td>
+<td style="text-align:left">字符范围，匹配指定范围内的任意字符，例如，”[a-z]”可以匹配”a”到”z”范围内的任意小写字母字符</td>
+</tr>
+<tr>
+<td style="text-align:center">[^a-z]</td>
+<td style="text-align:left">负值字符范围，匹配任何不在指定范围内的任意字符，例如，”[^a-z]”可以匹配任何不在”a”到”z”范围内的任意字符</td>
+</tr>
+</tbody>
+</table>
+<h3 id="正则表达式模式修正符-Python"><a href="#正则表达式模式修正符-Python" class="headerlink" title="正则表达式模式修正符(Python)"></a>正则表达式模式修正符(Python)</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">I</td>
+<td style="text-align:left">配置时忽略大小写</td>
+</tr>
+<tr>
+<td style="text-align:center">M</td>
+<td style="text-align:left">多行匹配，系统默认将字符串作为单一的一”行”字符所组成的（甚至其中包含有换行符也是如此），开启该模式之后^可以匹配每一行的开头</td>
+</tr>
+<tr>
+<td style="text-align:center">L</td>
+<td style="text-align:left">做本地化识别匹配</td>
+</tr>
+<tr>
+<td style="text-align:center">U</td>
+<td style="text-align:left">根据Unicode字符及解析字符</td>
+</tr>
+<tr>
+<td style="text-align:center">S</td>
+<td style="text-align:left">让.匹配包括换行符，即用了该模式之后，’.’可以匹配任意字符</td>
+</tr>
+</tbody>
+</table>
+<h3 id="常见正则表达式"><a href="#常见正则表达式" class="headerlink" title="常见正则表达式"></a>常见正则表达式</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:left">表达式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">中文汉字</td>
+<td style="text-align:left">[\u4e00-\u9fa5]</td>
+</tr>
+<tr>
+<td style="text-align:center">空白行</td>
+<td style="text-align:left">\n\s*\r</td>
+</tr>
+<tr>
+<td style="text-align:center">email地址</td>
+<td style="text-align:left">[\w!#$%&amp;’<em>+/=?^_`{&#124;}~-]+(?:.[\w!#$%&amp;’</em>+/=?^_`{&#124;}~-]+)<em>@(?:[\w](?:[\w-]</em>[\w])?.)+<a href="?:[\w-]*[\w]">\w</a>?</td>
+</tr>
+<tr>
+<td style="text-align:center">URL</td>
+<td style="text-align:left">[a-zA-Z]+:\/\/[^\s]*</td>
+</tr>
+<tr>
+<td style="text-align:center">国内电话号码</td>
+<td style="text-align:left">\d{3}-\d{8}&#124;\d{4}-\d{7,8}</td>
+</tr>
+<tr>
+<td style="text-align:center">QQ号</td>
+<td style="text-align:left">[1-9][0-9]{4,}</td>
+</tr>
+<tr>
+<td style="text-align:center">中国邮政编号</td>
+<td style="text-align:left">[1-9]\d{5}(?!\d)</td>
+</tr>
+<tr>
+<td style="text-align:center">18位身份证号</td>
+<td style="text-align:left">^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]&#124;X)$</td>
+</tr>
+<tr>
+<td style="text-align:center">正整数</td>
+<td style="text-align:left">^[1-9]\d*$</td>
+</tr>
+<tr>
+<td style="text-align:center">整数</td>
+<td style="text-align:left">^-?[1-9]\d*$</td>
+</tr>
+<tr>
+<td style="text-align:center">非负整数</td>
+<td style="text-align:left">^[1-9]\d*&#124;0$</td>
+</tr>
+<tr>
+<td style="text-align:center">正浮点数</td>
+<td style="text-align:left">^[1-9]\d<em>.\d</em>&#124;0.\d<em>[1-9]\d</em>$</td>
+</tr>
+</tbody>
+</table>
+<h4 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h4><p><a href="http://www.jb51.net/shouce/jquery/regexp.html" target="_blank" rel="noopener">正则表达式速查表</a><br><a href="https://www.cnblogs.com/lxh1197412986/p/6753031.html" target="_blank" rel="noopener">常见正则表达式</a><br><a href="http://tool.oschina.net/regex/?optionGlobl=global#" target="_blank" rel="noopener">在线正则表达式测试工具</a></p>
 
           
         
