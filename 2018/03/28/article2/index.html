@@ -66,7 +66,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java,Android,人工智能" />
+  <meta name="keywords" content="python,scrapy," />
 
 
 
@@ -84,16 +84,18 @@
 
 
 
-<meta name="description" content="From small beginnings comes great things">
-<meta property="og:type" content="website">
-<meta property="og:title" content="程序员博客">
-<meta property="og:url" content="http://www.shigc.top/index.html">
+<meta name="description" content="使用Scrapy中间件动态修改代理IP 常见的反爬虫及应对策略 通过检查Headers中的User-Agent或者Referer（为了防止盗链）值，应对策略： 在请求的时候动态修改User-Agent值，或者将Referer设置为目标网站的域名地址**   基于用户行为进行反爬虫，同一个IP很短的时间内多次进行访问，应对策略： 爬取页面的时候设置阈值，每次抓取完页面sleep一段时间 使用IP代理">
+<meta name="keywords" content="python,scrapy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python scrapy自动切换HTTP代理">
+<meta property="og:url" content="http://www.shigc.top/2018/03/28/article2/index.html">
 <meta property="og:site_name" content="程序员博客">
-<meta property="og:description" content="From small beginnings comes great things">
+<meta property="og:description" content="使用Scrapy中间件动态修改代理IP 常见的反爬虫及应对策略 通过检查Headers中的User-Agent或者Referer（为了防止盗链）值，应对策略： 在请求的时候动态修改User-Agent值，或者将Referer设置为目标网站的域名地址**   基于用户行为进行反爬虫，同一个IP很短的时间内多次进行访问，应对策略： 爬取页面的时候设置阈值，每次抓取完页面sleep一段时间 使用IP代理">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-29T09:31:53.248Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="程序员博客">
-<meta name="twitter:description" content="From small beginnings comes great things">
+<meta name="twitter:title" content="Python scrapy自动切换HTTP代理">
+<meta name="twitter:description" content="使用Scrapy中间件动态修改代理IP 常见的反爬虫及应对策略 通过检查Headers中的User-Agent或者Referer（为了防止盗链）值，应对策略： 在请求的时候动态修改User-Agent值，或者将Referer设置为目标网站的域名地址**   基于用户行为进行反爬虫，同一个IP很短的时间内多次进行访问，应对策略： 爬取页面的时候设置阈值，每次抓取完页面sleep一段时间 使用IP代理">
 
 
 
@@ -111,7 +113,7 @@
   };
 </script>
 
-  <title> 程序员博客  - From small beginnings comes great things </title>
+  <title> Python scrapy自动切换HTTP代理 | 程序员博客  - From small beginnings comes great things </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -142,9 +144,7 @@ var _hmt = _hmt || [];
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -264,9 +264,9 @@ var _hmt = _hmt || [];
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -286,160 +286,7 @@ var _hmt = _hmt || [];
             
             
               
-                
-                <a class="post-title-link" href="/2018/04/15/article3/" itemprop="url">
-                  正则表达式速查
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-04-15T18:21:43+08:00" content="2018-04-15">
-              2018-04-15
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/正则表达式/" itemprop="url" rel="index">
-                    <span itemprop="name">正则表达式</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="正则表达式速查表"><a href="#正则表达式速查表" class="headerlink" title="正则表达式速查表"></a>正则表达式速查表</h3><table><br>  <tr><br>    <th width="10%," bgcolor="yellow">参数</th><br>    <th width="40%," bgcolor="yellow">详细解释</th><br>    &lt;th width=”50%”, bgcolor=yellow&gt;备注<br>  </tr><br>  <tr><br>    <td bgcolor="#eeeeee"> -l </td><br>    <td> use a long listing format  </td><br>    <td> 以长列表方式显示（显示出文件/文件夹详细信息）  </td><br>  </tr><br>  <tr><br>    <td bgcolor="#00FF00">-t </td><br>    <td> sort by modification time </td><br>    <td> 按照修改时间排序（默认最近被修改的文件/文件夹排在最前面） </td><br>  </tr><tr><br>    <td bgcolor="rgb(0,10,0)">-r </td><br>    <td> reverse order while sorting </td><br>    <td>  逆序排列 </td><br>  </tr><br></table>
-
-<p>作者：cxuan<br>链接：<a href="https://www.jianshu.com/p/7a655e5345b2" target="_blank" rel="noopener">https://www.jianshu.com/p/7a655e5345b2</a><br>來源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-<h3 id="常见的反爬虫及应对策略"><a href="#常见的反爬虫及应对策略" class="headerlink" title="常见的反爬虫及应对策略"></a>常见的反爬虫及应对策略</h3><ol>
-<li>通过检查Headers中的User-Agent或者Referer（为了防止盗链）值，应对策略：<ul>
-<li><code>在请求的时候动态修改User-Agent值，或者将Referer设置为目标网站的域名地址**</code></li>
-</ul>
-</li>
-<li>基于用户行为进行反爬虫，同一个IP很短的时间内多次进行访问，应对策略：<ul>
-<li><code>爬取页面的时候设置阈值，每次抓取完页面sleep一段时间</code></li>
-<li><code>使用IP代理，在抓取页面的时候动态的切换IP</code></li>
-<li><code>只抓取动态请求的数据，不直接抓取整个页面</code></li>
-</ul>
-</li>
-</ol>
-<h3 id="Scrapy中间件的使用"><a href="#Scrapy中间件的使用" class="headerlink" title="Scrapy中间件的使用"></a>Scrapy中间件的使用</h3><ol>
-<li>创建一个中间件对象，并实现<code>process_request(request, spider)</code>方法：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HttpProxyMiddleware</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">process_request</span><span class="params">(self, request, spider)</span>:</span></span><br><span class="line">    	proxy = HttpProxy()</span><br><span class="line">		<span class="comment">#这里可以设置请求的user-agent</span></span><br><span class="line">		<span class="comment">#request.headers.setdefault('User-Agent', "Your user agent!")</span></span><br><span class="line">		request.meta[<span class="string">"proxy"</span>] = proxy.get_random_ip()</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>这里的HttpProxy是写好的获取代理IP的工具类，返回代理格式：<code>[协议]://[IP]:[PORT]</code></p>
-<ol>
-<li><p>在setting.py中配置创建的中间件</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DOWNLOADER_MIDDLEWARES = &#123;  </span><br><span class="line">	<span class="string">'myprojects.middlewares.HttpProxyMiddleware'</span>: <span class="number">300</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>运行HTTP代理服务器（默认端口是8899，可以用port参数指定端口）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ proxy.py --hostname  &lt;手机局域网IP地址&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><strong> 备注：</strong></p>
-<ol>
-<li>hostname参数不配置的话，默认使用的IP是127.0.0.1，这时手机只能作为本机的代理服务器</li>
-<li>手机和电脑必须在同一个局域网下（保证手机和电脑能建立连接） </li>
-</ol>
-<h3 id="电脑端设置："><a href="#电脑端设置：" class="headerlink" title="电脑端设置："></a>电脑端设置：</h3><h4 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h4><p><a href="https://github.com/kohn/HttpProxyMiddleware" target="_blank" rel="noopener">github上的HttpProxyMiddleware</a></p>
-
-          
-        
-      
-    </div>
-
-	<div>
-      
-    </div>
-	
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/03/28/article2/" itemprop="url">
-                  Python scrapy自动切换HTTP代理
-                </a>
+                Python scrapy自动切换HTTP代理
               
             
           </h1>
@@ -498,9 +345,7 @@ var _hmt = _hmt || [];
       
 
       
-        
-          
-            <p>使用Scrapy中间件动态修改代理IP</p>
+        <p>使用Scrapy中间件动态修改代理IP</p>
 <h3 id="常见的反爬虫及应对策略"><a href="#常见的反爬虫及应对策略" class="headerlink" title="常见的反爬虫及应对策略"></a>常见的反爬虫及应对策略</h3><ol>
 <li>通过检查Headers中的User-Agent或者Referer（为了防止盗链）值，应对策略：<ul>
 <li><code>在请求的时候动态修改User-Agent值，或者将Referer设置为目标网站的域名地址**</code></li>
@@ -533,305 +378,72 @@ var _hmt = _hmt || [];
 </ol>
 <h3 id="电脑端设置："><a href="#电脑端设置：" class="headerlink" title="电脑端设置："></a>电脑端设置：</h3><h4 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h4><p><a href="https://github.com/kohn/HttpProxyMiddleware" target="_blank" rel="noopener">github上的HttpProxyMiddleware</a></p>
 
-          
-        
       
     </div>
 
 	<div>
       
+        
+<div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束 ------</div>
+
+      
     </div>
 	
     <div>
       
+        
+      
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/03/18/article1/" itemprop="url">
-                  安卓手机用作电脑的HTTP代理服务器
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-03-18T22:55:14+08:00" content="2018-03-18">
-              2018-03-18
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
+            <a href="/tags/python/" rel="tag">#python</a>
           
-
-          
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/scrapy/" rel="tag">#scrapy</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>目前电脑上的免费VPN软件比较难找，但是安卓上的免费VPN软件很多，所以考虑手机翻墙后作为电脑端的HTTP代理服务器，让电脑端也可以科学上网</p>
-<h3 id="手机端设置："><a href="#手机端设置：" class="headerlink" title="手机端设置："></a>手机端设置：</h3><ol>
-<li><p>下载安装Termux，google play上可以直接下载</p>
-</li>
-<li><p>在Termux上安装Python</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ apt install python</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装<a href="https://github.com/abhinavsingh/proxy.py" title="proxy.py" target="_blank" rel="noopener">HTTP代理服务器</a>脚本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install proxy.py</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>运行HTTP代理服务器（默认端口是8899，可以用port参数指定端口）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ proxy.py --hostname  &lt;手机局域网IP地址&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><strong> 备注：</strong></p>
-<ol>
-<li>hostname参数不配置的话，默认使用的IP是127.0.0.1，这时手机只能作为本机的代理服务器</li>
-<li>手机和电脑必须在同一个局域网下（保证手机和电脑能建立连接） </li>
-</ol>
-<h3 id="电脑端设置："><a href="#电脑端设置：" class="headerlink" title="电脑端设置："></a>电脑端设置：</h3><ol>
-<li>设置IE的代理:Internet选项–连接–局域网设置–代理服务器，地址为手机局域网地址，端口8899，你也可以安装一些快速切换代理的插件来设置，这里就不多说明了</li>
-</ol>
-<h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips:"></a>Tips:</h4><p>手机通过电脑代理上网也可以类似地进行操作，在电脑上安装Python和proxy.py，然后运行proxy.py</p>
-<h4 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h4><p><a href="https://zhuanlan.zhihu.com/p/22683468" target="_blank" rel="noopener">知乎：用Android手机做电脑的HTTP代理服务器</a></p>
-
-          
-        
-      
-    </div>
-
-	<div>
-      
-    </div>
-	
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/04/15/article3/" class="post-nav-title-link" rel="prev" title="正则表达式速查">
+                <i class="fa fa-chevron-left"></i> 正则表达式速查 
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2018/03/18/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
+          </div>
+		  
+		  <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-03-18T18:14:29+08:00" content="2018-03-18">
-              2018-03-18
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/测试页面/" itemprop="url" rel="index">
-                    <span itemprop="name">测试页面</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
+              <a href="/2018/03/18/article1/" class="post-nav-title-link" rel="next" title="安卓手机用作电脑的HTTP代理服务器">
+                安卓手机用作电脑的HTTP代理服务器  <i class="fa fa-chevron-right"></i>
+              </a>
             
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-	<div>
-      
-    </div>
-	
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -839,6 +451,10 @@ var _hmt = _hmt || [];
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -858,8 +474,17 @@ var _hmt = _hmt || [];
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -954,6 +579,17 @@ var _hmt = _hmt || [];
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的反爬虫及应对策略"><span class="nav-number">1.</span> <span class="nav-text">常见的反爬虫及应对策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scrapy中间件的使用"><span class="nav-number">2.</span> <span class="nav-text">Scrapy中间件的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#电脑端设置："><span class="nav-number">3.</span> <span class="nav-text">电脑端设置：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料："><span class="nav-number">3.1.</span> <span class="nav-text">参考资料：</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -1062,6 +698,10 @@ var _hmt = _hmt || [];
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
