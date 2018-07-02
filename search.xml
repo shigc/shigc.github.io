@@ -8,8 +8,8 @@
         <category>git</category>
       </categories>
       <tags>
-        <tag>github</tag>
         <tag>git</tag>
+        <tag>github</tag>
       </tags>
   </entry>
   <entry>
@@ -56,9 +56,9 @@
         <category>测试页面</category>
       </categories>
       <tags>
+        <tag>github</tag>
         <tag>test</tag>
         <tag>hexo</tag>
-        <tag>github</tag>
       </tags>
   </entry>
 </search>
