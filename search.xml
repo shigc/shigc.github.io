@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[烽火HG2543C1光猫破解教程]]></title>
     <url>%2F2019%2F10%2F17%2Farticle4%2F</url>
-    <content type="text"><![CDATA[1. HG2543C1光猫路由模式改桥接模式1.1 打开光猫telnet功能浏览器访问 http://192.168.1.1:8080/cgi-bin/telnetenable.cgi?telnetenable=1 1.2 telnet进入光猫获取telecomadmin密码登录用户名root，密码是默认wifi密码+默认useradmin密码cat /flash/cfg/agentconf/factory.conf 查看telecomadmin密码cat /flash/cfg/app_conf/pppoe/chap-secrets 查看宽带账号和密码 1.3 使用telecomadmin账号登录浏览器访问 http://192.168.1.1:8080/cgi-bin/login.htm.cgi打开网络–宽带设置，设置连接方式为桥接，具体见下图]]></content>
+    <content type="text"><![CDATA[1. HG2543C1光猫路由模式改桥接模式1.1 打开光猫telnet功能浏览器访问 http://192.168.1.1:8080/cgi-bin/telnetenable.cgi?telnetenable=1 1.2 telnet进入光猫获取telecomadmin密码登录用户名root，密码是默认wifi密码+默认useradmin密码，具体看光猫背面cat /flash/cfg/agentconf/factory.conf 查看telecomadmin密码cat /flash/cfg/app_conf/pppoe/chap-secrets 查看宽带账号和密码 1.3 使用telecomadmin账号登录浏览器访问 http://192.168.1.1:8080/cgi-bin/login.htm.cgi打开网络–宽带设置，设置2_INTERNET_B_VID_xxxx连接方式为桥接，具体见下图]]></content>
       <categories>
         <category>路由器</category>
       </categories>
