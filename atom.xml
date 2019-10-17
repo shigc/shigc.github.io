@@ -38,9 +38,9 @@
       <category term="git" scheme="http://www.shigc.top/categories/git/"/>
     
     
-      <category term="git" scheme="http://www.shigc.top/tags/git/"/>
-    
       <category term="github" scheme="http://www.shigc.top/tags/github/"/>
+    
+      <category term="git" scheme="http://www.shigc.top/tags/git/"/>
     
   </entry>
   
@@ -152,11 +152,11 @@
       <category term="测试页面" scheme="http://www.shigc.top/categories/%E6%B5%8B%E8%AF%95%E9%A1%B5%E9%9D%A2/"/>
     
     
-      <category term="github" scheme="http://www.shigc.top/tags/github/"/>
-    
       <category term="test" scheme="http://www.shigc.top/tags/test/"/>
     
       <category term="hexo" scheme="http://www.shigc.top/tags/hexo/"/>
+    
+      <category term="github" scheme="http://www.shigc.top/tags/github/"/>
     
   </entry>
   
